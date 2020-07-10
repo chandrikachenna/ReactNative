@@ -14,10 +14,10 @@ import {SIGNUP_SCENE} from '../../Authentication/constants/NavigationConstants';
 import {SignUpForm} from '../../Authentication/components/SignUpForm';
 
 const scenes = [
-  <Scene key={SIGNUP_SCENE} component={SignUpForm} />,
+  <Scene initial key={SIGNUP_SCENE} component={SignUpForm} />,
   <Scene key={APP_LAUNCH_SCENE} component={LaunchScene} back />,
   <Scene key={APP_SCENE} component={AppScene} back />,
-  <Scene initial key={MAIN_SCENE} component={HomePage} />,
+  <Scene key={MAIN_SCENE} component={HomePage} />,
 ];
 
 const modalScenes: any = [];
