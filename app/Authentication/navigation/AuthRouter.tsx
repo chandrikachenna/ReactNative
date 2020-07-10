@@ -10,7 +10,7 @@ import {observer} from 'mobx-react';
 import {NavigationActions} from 'react-navigation';
 
 import scenes from '../scenes';
-import {MAIN_SCENE} from '../constants/NavigationConstants';
+import {SIGNUP_SCENE} from '../constants/NavigationConstants';
 
 const reducerCreate = (params: any) => {
   const defaultReducer = new Reducer(params);
@@ -74,9 +74,9 @@ const handleBackPress = (
   return defaultReducer(state, action);
 };
 
-class NavigationRouter extends Component {
+class AuthRouter extends Component {
   componentWillMount() {
-    if (!Actions.currentScene && Actions.currentScene !== MAIN_SCENE) {
+    if (!Actions.currentScene && Actions.currentScene !== SIGNUP_SCENE) {
       // Note: As react-native-router-flux not launching LaunchScreen as first screen if user exits app in some other scene, do something like splashscreen
       console.log('CurrentScene', Actions.currentScene);
     }
@@ -100,13 +100,11 @@ class NavigationRouter extends Component {
         backAndroidHandler={this.onBackPress}
         wrapBy={observer}>
         <Lightbox key="lightBox">
-          <Stack key="InitialStack" hideNavBar>
-            {scenes}
-          </Stack>
+          <Stack key="InitialStack">{scenes}</Stack>
         </Lightbox>
       </Router>
     );
   }
 }
 
-export default NavigationRouter;
+export default AuthRouter;

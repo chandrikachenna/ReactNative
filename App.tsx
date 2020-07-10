@@ -11,6 +11,7 @@ import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
 
 import NavigationRouter from './app/Common/navigation/NavigationRouter';
 
+
 const App = () => {
   return (
     <Fragment>
