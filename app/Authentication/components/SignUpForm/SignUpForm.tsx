@@ -130,7 +130,7 @@ class SignUpForm extends Component {
                   placeholder={i18n.t('authentication.typeYourAddressHere')}
                 />
               </Address>
-              
+
               <Button
                 title={i18n.t('authentication.signUpTitle')}
                 onPress={this.onClickSignUp}
