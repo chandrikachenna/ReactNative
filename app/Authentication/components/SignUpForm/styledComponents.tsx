@@ -25,3 +25,12 @@ export const NameDivision = styled(View)`
   flex-direction: row;
   justify-content: space-between;
 `;
+
+export const Address = styled(View)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-top: 5px;
+`;

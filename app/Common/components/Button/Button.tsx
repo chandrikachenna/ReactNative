@@ -1,11 +1,15 @@
 import React from 'react';
-import { StyleSheet, Button as ReactNativeButton} from 'react-native';
+import {StyleSheet, Button as ReactNativeButton} from 'react-native';
 
-const Button=(props:any)=>{
-    <ReactNativeButton
-        title={props.titie}
-        onPress={props.onPress}
-      />
+interface ButtonProps {
+  title: string;
+  onPress: () => void;
+}
+class Button extends React.Component<ButtonProps> {
+  render() {
+    const {title, onPress} = this.props;
+    return <ReactNativeButton title={title} onPress={onPress} />;
+  }
 }
 
-export {Button}
+export {Button};

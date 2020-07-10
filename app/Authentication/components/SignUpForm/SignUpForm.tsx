@@ -3,11 +3,21 @@ import LinearGradient from 'react-native-linear-gradient';
 import {StyleSheet, ScrollView} from 'react-native';
 import {Card} from '../../../Common/components/Card';
 import i18n from '../../../Common/i18n/i18n';
-import {Title, FormText, Header, Form, NameDivision} from './styledComponents';
+import {
+  Title,
+  FormText,
+  Header,
+  Form,
+  NameDivision,
+  Address,
+} from './styledComponents';
 import {TextInput} from '../../../Common/components/TextInput';
-import {RadioButtons} from '../../../Common/components/RadioButtons';
+import {RadioButton} from '../../../Common/components/RadioButtons';
 import {observer} from 'mobx-react';
 import {observable, action} from 'mobx';
+import {TextInput as ReactNativeTextArea, Text} from 'react-native';
+import {Button} from '../../../Common/components/Button';
+import {CheckBox} from '../../../Common/components/CheckBox';
 @observer
 class SignUpForm extends Component {
   @observable firstName!: string;
@@ -16,6 +26,7 @@ class SignUpForm extends Component {
   @observable mobileNumber!: string;
   @observable password!: string;
   @observable confirmPassword!: string;
+  @observable gender!: string;
   @action.bound
   onChangeFirstName = (value: string) => {
     this.firstName = value;
@@ -40,6 +51,12 @@ class SignUpForm extends Component {
   onChangeConfirmPassword = (value: string) => {
     this.confirmPassword = value;
   };
+  @action.bound
+  onChangeGender = (value: string) => {
+    this.gender = value;
+  };
+  @action.bound
+  onClickSignUp = () => {};
   render() {
     return (
       <LinearGradient
@@ -104,7 +121,20 @@ class SignUpForm extends Component {
                 onChange={this.onChangeConfirmPassword}
                 inputStyle={styles.input}
               />
-              <RadioButtons />
+              <RadioButton onPressFunction={this.onChangeGender} />
+              <Address>
+                <Text>{i18n.t('authentication.enterYourAddress')}</Text>
+                <ReactNativeTextArea
+                  style={styles.textArea}
+                  numberOfLines={2}
+                  placeholder={i18n.t('authentication.typeYourAddressHere')}
+                />
+              </Address>
+              
+              <Button
+                title={i18n.t('authentication.signUpTitle')}
+                onPress={this.onClickSignUp}
+              />
             </Form>
           </ScrollView>
         </Card>
@@ -140,6 +170,11 @@ const styles = StyleSheet.create({
     padding: 5,
     margin: 10,
     width: '47%',
+  },
+  textArea: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: 'grey',
   },
 });
 export default SignUpForm;
