@@ -61,6 +61,7 @@ class SignUpForm extends Component {
                   secureTextEntry={false}
                   value={this.firstName}
                   onChange={this.onChangeFirstName}
+                  inputStyle={styles.inputName}
                 />
                 <TextInput
                   type={'default'}
@@ -68,6 +69,7 @@ class SignUpForm extends Component {
                   secureTextEntry={false}
                   value={this.lastName}
                   onChange={this.onChangeLastName}
+                  inputStyle={styles.inputName}
                 />
               </NameDivision>
               <TextInput
@@ -76,6 +78,7 @@ class SignUpForm extends Component {
                 secureTextEntry={false}
                 value={this.mobileNumber}
                 onChange={this.onChangeMobileNumber}
+                inputStyle={styles.input}
               />
               <TextInput
                 type={'email-address'}
@@ -83,6 +86,7 @@ class SignUpForm extends Component {
                 secureTextEntry={false}
                 value={this.email}
                 onChange={this.onChangeEmail}
+                inputStyle={styles.input}
               />
               <TextInput
                 type={'default'}
@@ -90,6 +94,7 @@ class SignUpForm extends Component {
                 secureTextEntry={true}
                 value={this.password}
                 onChange={this.onChangePassword}
+                inputStyle={styles.input}
               />
               <TextInput
                 type={'default'}
@@ -97,6 +102,7 @@ class SignUpForm extends Component {
                 secureTextEntry={true}
                 value={this.confirmPassword}
                 onChange={this.onChangeConfirmPassword}
+                inputStyle={styles.input}
               />
               <RadioButtons />
             </Form>
@@ -128,6 +134,12 @@ const styles = StyleSheet.create({
     padding: 5,
     margin: 10,
     width: '100%',
+  },
+  inputName: {
+    backgroundColor: '#f2f2f2',
+    padding: 5,
+    margin: 10,
+    width: '47%',
   },
 });
 export default SignUpForm;

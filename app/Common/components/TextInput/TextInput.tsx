@@ -7,15 +7,23 @@ interface TextInputProps {
   onChange: (text: string) => void;
   secureTextEntry: boolean;
   value: string;
+  inputStyle: any;
 }
 class TextInput extends React.Component<TextInputProps> {
   render() {
-    const {value, type, placeholder, onChange, secureTextEntry} = this.props;
+    const {
+      inputStyle,
+      value,
+      type,
+      placeholder,
+      onChange,
+      secureTextEntry,
+    } = this.props;
     return (
       <ReactNativeTextInput
         keyboardType={type}
         value={value}
-        style={styles.input}
+        style={inputStyle}
         placeholder={placeholder}
         onChangeText={onChange}
         secureTextEntry={secureTextEntry}
@@ -24,13 +32,4 @@ class TextInput extends React.Component<TextInputProps> {
   }
 }
 
-export default TextInput;
-const styles = StyleSheet.create({
-  input: {
-    backgroundColor: '#f2f2f2',
-    padding: 5,
-    margin: 10,
-    width: '100%',
-  },
-});
 export {TextInput};
